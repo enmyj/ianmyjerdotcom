@@ -1,11 +1,11 @@
-import Penny from "./assets/penny.svg";
+import Framily from "./assets/framily.jpg";
 import "./App.css";
 
 function App() {
   return (
     <>
       <div>
-        <img src={Penny} className="logo penny" />
+        <img src={Framily} className="logo penny" />
       </div>
       Welcome to Ian Myjer Dot Com!
     </>

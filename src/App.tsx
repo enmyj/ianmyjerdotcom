@@ -4,10 +4,10 @@ import "./App.css";
 function App() {
   return (
     <>
-      <div>
-        <img src={Framily} className="logo penny" />
+      <div className="image-container">
+        <img src={Framily} alt="Framily" className="centered-image" />
       </div>
-      Welcome to Ian Myjer Dot Com!
+      <div>Welcome to Ian Myjer Dot Com!</div>
     </>
   );
 }

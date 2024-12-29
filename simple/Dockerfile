@@ -1,4 +1,4 @@
-FROM golang:1.23-bookworm AS builder
+FROM golang:1.23.4-alpine3.21 AS builder
 
 WORKDIR /mnt/src
 

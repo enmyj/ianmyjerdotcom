@@ -1,0 +1,36 @@
+{{define "header"}}
+<header>
+  <p>Here is the header</p>
+</header>
+{{end}}
+
+{{define "footer"}}
+<footer>
+  <p>Here is the footer</p>
+</footer>
+{{end}}
+
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>IMDC</title>
+  <link rel="stylesheet" href="/static/css/styles.css">
+  <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="icon" href="/static/images/favicon.png" type="image/png">
+</head>
+
+<body>
+  <header>
+    {{ template "header" .}}
+  </header>
+  <main>
+    <section>
+      {{ block "content" . }}{{ end }}
+    </section>
+  </main>
+</body>
+
+</html>

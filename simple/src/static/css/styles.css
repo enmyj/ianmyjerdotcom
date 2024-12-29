@@ -1,0 +1,67 @@
+/* Reset basic styles */
+body, html {
+    margin: 0;
+    padding: 0;
+    height: 100%; /* Ensure full height */
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+    background-color: #ffffff;
+}
+
+/* Flex container for full-height layout */
+body {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh; /* Ensure the body takes up the full viewport height */
+}
+
+/* Header styling */
+header {
+    background-color: #ffffff;
+    color: black;
+    text-align: center;
+    padding: 10px 0;
+    font-family: 'Fira Code', monospace; /* Nerdy font for header */
+}
+
+header nav ul {
+    list-style: none;
+    padding: 0;
+}
+
+header nav ul li {
+    display: inline;
+    margin: 0 15px;
+}
+
+header nav ul li a {
+    color: black; /* Adjust for visibility */
+    text-decoration: none;
+}
+
+/* Main content styling */
+main {
+    flex: 1; /* Take up remaining space to push footer to the bottom */
+    padding: 20px;
+}
+
+/* Footer styling */
+footer {
+    background-color: #ffffff;
+    color: #333; /* Softer text color */
+    text-align: center;
+    padding: 10px 0;
+    font-family: 'Fira Code', monospace; /* Nerdy font for footer */
+}
+
+/* Section headings */
+main section h2 {
+    color: #333; /* Neutral heading color */
+}
+
+.framily-image {
+    display: block;
+    margin: 20px auto; /* Center the image */
+    max-width: 100%;  /* Ensure it doesn't overflow */
+    height: auto;     /* Maintain aspect ratio */
+}

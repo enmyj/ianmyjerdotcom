@@ -1,0 +1,6 @@
+User-agent: *
+Disallow: /hellpot
+Disallow: /wp-login.php
+Disallow: /.git
+Disallow: /.env
+Allow: /

@@ -22,14 +22,15 @@ func main() {
 		CacheControl: true,
 	}))
 
-	app.Static("/favicon.ico", "./static/images/favicon.png", fiber.Static{MaxAge: 3600})
-	app.Static("/static", "./static", fiber.Static{MaxAge: 3600})
+	app.Static("/favicon.ico", "./static/images/favicon.png", fiber.Static{MaxAge: 604800})
+	app.Static("/robots.txt", "./static/robots.txt", fiber.Static{MaxAge: 604800})
+	app.Static("/static", "./static", fiber.Static{MaxAge: 604800})
 
 	app.Get("/", func(c *fiber.Ctx) error {
 		return c.Render("index", fiber.Map{}, "layouts/main")
 	})
 
-	app.Get("/about.html", func(c *fiber.Ctx) error {
+	app.Get("/about", func(c *fiber.Ctx) error {
 		return c.Render("about", fiber.Map{}, "layouts/main")
 	})
 

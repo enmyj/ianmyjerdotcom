@@ -12,8 +12,9 @@ node_modules
 dist
 dist-ssr
 *.local
-.yarn/cache/*
-.yarn/install-state.gz
+react/.yarn/cache/*
+react/.yarn/install-state.gz
+hugo/ianmyjerdotcom/themes/*
 
 # Editor directories and files
 .vscode/*

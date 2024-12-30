@@ -1,29 +1,39 @@
-/* Reset and basic styles */
-html, body {
-    margin: 0;
+body, html {
+    margin: auto 5%;
     padding: 0;
     height: 100%;
-    font-family: Arial, sans-serif;
+    font-family: 'Fira Code', monospace;
+    line-height: 1.6;
+    background-color: #ffffff;
 }
 
-/* Structure and spacing */
-body {
-    display: flex;
-    flex-direction: column;
-    min-height: 100vh;
+/* Header styling */
+header {
+    background-color: #ffffff;
+    color: black;
+    text-decoration: none;
+    text-align: left;
+    font-family: 'Fira Code', monospace;
 }
 
-/* Consistent left-aligned content */
-header, main, footer {
-    max-width: 800px; /* Constrain content width */
-    margin-left: 20px; /* Left-justify with spacing from the screen */
-    margin-right: auto; /* Prevent horizontal centering */
-    padding: 10px 0; /* Vertical padding */
-    box-sizing: border-box; /* Include padding in width calculations */
-    text-align: left; /* Ensure text alignment is left */
+header a,
+header a:visited,
+header a:hover {
+    color: black;
+    text-decoration: none;
 }
 
-/* Allow main to take remaining space */
-main {
-    flex: 1; /* Flexible space for main content */
+header nav a,
+header nav a:visited,
+header nav a:hover {
+    margin-right: 15px;
+    color: black;
+    text-decoration: none;
+}
+
+.framily-image {
+    display: block;
+    margin: 20px auto; /* Center the image */
+    max-width: 100%;  /* Ensure it doesn't overflow */
+    height: auto;     /* Maintain aspect ratio */
 }

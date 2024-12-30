@@ -1,4 +1,4 @@
-FROM golang:1.23-bookworm AS builder
+FROM golang:1.23.4-alpine3.21 AS builder
 
 WORKDIR /mnt/src
 
@@ -11,5 +11,6 @@ FROM scratch AS runner
 
 COPY --from=builder /ianmyjerdotcom /ianmyjerdotcom
 COPY src/static /static
+COPY src/views /views
 EXPOSE 80
 CMD ["/ianmyjerdotcom"]

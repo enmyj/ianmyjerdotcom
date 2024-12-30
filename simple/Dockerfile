@@ -2,7 +2,11 @@ FROM golang:1.23.4-alpine3.21 AS builder
 
 WORKDIR /mnt/src
 
-COPY src /mnt/src
+COPY src/go.mod /mnt/src/go.mod
+COPY src/go.sum /mnt/src/go.sum
+COPY src/main.go /mnt/src/main.go
+COPY src/internal /mnt/src/internal
+COPY src/pkg /mnt/src/pkg
 
 RUN go mod tidy
 RUN CGO_ENABLED=0 GOOS=linux go build -o /ianmyjerdotcom

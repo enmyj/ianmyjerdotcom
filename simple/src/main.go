@@ -22,8 +22,8 @@ func main() {
 		CacheControl: true,
 	}))
 
-	app.Static("/favicon.ico", "./static/images/favicon.png")
-	app.Static("/static", "./static")
+	app.Static("/favicon.ico", "./static/images/favicon.png", fiber.Static{MaxAge: 3600})
+	app.Static("/static", "./static", fiber.Static{MaxAge: 3600})
 
 	app.Get("/", func(c *fiber.Ctx) error {
 		return c.Render("index", fiber.Map{}, "layouts/main")

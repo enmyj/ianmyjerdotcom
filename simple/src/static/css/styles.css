@@ -33,7 +33,8 @@ header nav a:hover {
 
 .framily-image {
     display: block;
-    margin: 20px auto; /* Center the image */
-    max-width: 100%;  /* Ensure it doesn't overflow */
-    height: auto;     /* Maintain aspect ratio */
+    margin: 20px 0;
+    margin-left: 0;
+    max-width: 100%;
+    height: auto;
 }

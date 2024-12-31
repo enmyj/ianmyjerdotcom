@@ -5,9 +5,19 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Ian Myjer</title>
-  <link rel="stylesheet" href="/static/css/styles.css">
+  <style>
+    body {
+      font-family: 'Fira Code', monospace, sans-serif;
+    }
+  </style>
+  <link rel="preload" href="/static/css/styles.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+  <noscript>
+    <link rel="stylesheet" href="/static/css/styles.css">
+  </noscript>
   <link rel="icon" href="static/images/favicon.png" type="image/png">
-  <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fira+Code&display=swap" rel="stylesheet">
 </head>
 
 <body>

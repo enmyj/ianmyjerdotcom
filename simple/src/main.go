@@ -1,17 +1,16 @@
 package main
 
 import (
-	"bytes"
 	"html/template"
 	"log"
-	"os"
 	"time"
 
 	"github.com/gofiber/fiber/v2"
 	"github.com/gofiber/fiber/v2/middleware/cache"
 	"github.com/gofiber/fiber/v2/middleware/logger"
 	"github.com/gofiber/template/html/v2"
-	"github.com/yuin/goldmark"
+
+	"github.com/enmyj/ianmyjerdotcom/handlers"
 )
 
 func main() {
@@ -43,21 +42,11 @@ func main() {
 		return c.Render("about", fiber.Map{}, "layouts/main")
 	})
 
-	app.Get("/markdown", func(c *fiber.Ctx) error {
-		content, err := os.ReadFile("./static/content/test.md")
-		if err != nil {
-			return c.Status(fiber.StatusInternalServerError).SendString("Error reading Markdown file")
-		}
-
-		var buf bytes.Buffer
-		if err := goldmark.Convert(content, &buf); err != nil {
-			panic(err)
-		}
-
-		return c.Render("ian", fiber.Map{
-			"Content": buf.String(),
-		}, "layouts/main")
+	app.Get("/writing", func(c *fiber.Ctx) error {
+		return c.Render("writing", fiber.Map{}, "layouts/main")
 	})
+
+	app.Get("/content/*", handlers.RenderMarkdown)
 
 	log.Fatal(app.Listen(":8000"))
 }

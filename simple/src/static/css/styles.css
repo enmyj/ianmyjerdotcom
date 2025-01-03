@@ -43,14 +43,13 @@ ul {
 
 .writing-list-style a {
     color: #000;
-    /* text-decoration: none; */
+    text-decoration: underline;
 }
 
 .writing-list-style a:hover {
     text-decoration: underline;
 }
 
-/* Header styling */
 header {
     background-color: #ffffff;
     color: black;

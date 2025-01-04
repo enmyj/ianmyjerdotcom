@@ -3,6 +3,7 @@ package main
 import (
 	"html/template"
 	"log"
+	"path/filepath"
 	"time"
 
 	"github.com/gofiber/fiber/v2"
@@ -42,11 +43,14 @@ func main() {
 		return c.Render("about", fiber.Map{}, "layouts/main")
 	})
 
-	app.Get("/writing", func(c *fiber.Ctx) error {
-		return c.Render("writing", fiber.Map{}, "layouts/main")
+	app.Get("/notes", func(c *fiber.Ctx) error {
+		return c.Render("notes", fiber.Map{}, "layouts/main")
 	})
 
-	app.Get("/content/*", handlers.RenderMarkdown)
+	contentDir, _ := filepath.Abs("./static/content")
+	app.Get("/content/:fileName", func(c *fiber.Ctx) error {
+		return handlers.RenderMarkdown(c, contentDir)
+	})
 
 	log.Fatal(app.Listen(":8000"))
 }

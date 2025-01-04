@@ -26,6 +26,9 @@ p {
 ul {
     font-size: 1.1rem;
 }
+code, pre {
+    font-family: 'Courier New', Courier, monospace;
+}
 
 .writing-list {
     margin: 0;

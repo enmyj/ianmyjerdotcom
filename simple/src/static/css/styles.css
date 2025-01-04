@@ -28,6 +28,7 @@ ul {
 }
 code, pre {
     font-family: 'Courier New', Courier, monospace;
+    color: #ffa500;
 }
 
 .writing-list {

@@ -1,6 +1,6 @@
 
 ---
-Last updated: 2024-01-03
+Last updated: 2025-01-04
 
 ### Setting up Kubernetes and deploying a few things
 

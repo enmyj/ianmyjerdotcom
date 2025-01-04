@@ -6,7 +6,7 @@ COPY src/go.mod /mnt/src/go.mod
 COPY src/go.sum /mnt/src/go.sum
 COPY src/main.go /mnt/src/main.go
 COPY src/internal /mnt/src/internal
-COPY src/pkg /mnt/src/pkg
+COPY src/handlers /mnt/src/handlers
 
 RUN go mod tidy
 RUN CGO_ENABLED=0 GOOS=linux go build -o /ianmyjerdotcom

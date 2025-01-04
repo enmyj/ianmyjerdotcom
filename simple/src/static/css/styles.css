@@ -1,13 +1,58 @@
-body, html {
+html {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    font-size: 100%;
+    background-color: #ffffff;
+}
+
+body {
     margin: auto 5%;
     padding: 0;
     height: 100%;
     font-family: 'Fira Code', monospace;
     line-height: 1.6;
+    font-size: 1rem;
+}
+h1 {
+    font-size: 2rem;
+}
+nav {
+    font-size: 1.3rem;
+}
+p {
+    font-size: 1.1rem;
+}
+ul {
+    font-size: 1.1rem;
+}
+code, pre {
+    font-family: 'Courier New', Courier, monospace;
+}
+
+.writing-list {
+    margin: 0;
+    padding: 0;
     background-color: #ffffff;
 }
 
-/* Header styling */
+.writing-list-style {
+    padding: 0;
+    font-family: 'Fira Code', monospace;
+    line-height: 2.0;
+    list-style-type: none;
+    text-align: left;
+}
+
+.writing-list-style a {
+    color: #000;
+    text-decoration: underline;
+}
+
+.writing-list-style a:hover {
+    text-decoration: underline;
+}
+
 header {
     background-color: #ffffff;
     color: black;

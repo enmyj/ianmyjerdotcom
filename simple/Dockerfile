@@ -1,11 +1,12 @@
-FROM golang:1.23.4-alpine3.21 AS builder
+FROM golang:alpine3.23 AS builder
 
 WORKDIR /mnt/src
 
 COPY src/go.mod /mnt/src/go.mod
 COPY src/go.sum /mnt/src/go.sum
 COPY src/main.go /mnt/src/main.go
-COPY src/internal /mnt/src/internal
+COPY src/views /mnt/src/views
+COPY src/static /mnt/src/static
 COPY src/handlers /mnt/src/handlers
 
 RUN go mod tidy

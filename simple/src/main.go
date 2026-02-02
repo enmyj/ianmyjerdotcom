@@ -1,15 +1,18 @@
 package main
 
 import (
+	"crypto/tls"
 	"html/template"
 	"log"
 	"path/filepath"
+	"strings"
 	"time"
 
 	"github.com/gofiber/fiber/v2"
 	"github.com/gofiber/fiber/v2/middleware/cache"
 	"github.com/gofiber/fiber/v2/middleware/logger"
 	"github.com/gofiber/template/html/v2"
+	"github.com/valyala/fasthttp"
 
 	"github.com/enmyj/ianmyjerdotcom/handlers"
 )
@@ -29,6 +32,9 @@ func main() {
 	app.Use(cache.New(cache.Config{
 		Expiration:   24 * time.Hour,
 		CacheControl: true,
+		Next: func(c *fiber.Ctx) bool {
+			return strings.HasPrefix(c.Path(), "/training")
+		},
 	}))
 
 	app.Static("/favicon.ico", "./static/images/favicon.png", fiber.Static{MaxAge: 604800})
@@ -45,6 +51,37 @@ func main() {
 
 	app.Get("/notes", func(c *fiber.Ctx) error {
 		return c.Render("notes", fiber.Map{}, "layouts/main")
+	})
+
+	app.All("/training*", func(c *fiber.Ctx) error {
+		client := &fasthttp.Client{
+			TLSConfig:                     &tls.Config{InsecureSkipVerify: true},
+			NoDefaultUserAgentHeader:      true,
+			DisableHeaderNamesNormalizing: true,
+			DisablePathNormalizing:        true,
+		}
+		req := fasthttp.AcquireRequest()
+		resp := fasthttp.AcquireResponse()
+		defer fasthttp.ReleaseRequest(req)
+		defer fasthttp.ReleaseResponse(resp)
+
+		req.SetRequestURI("https://rnsaffn.com/poison2/")
+		req.Header.SetMethod(c.Method())
+		c.Request().Header.VisitAll(func(key, value []byte) {
+			req.Header.SetBytesKV(key, value)
+		})
+		req.SetBody(c.Body())
+
+		if err := client.Do(req, resp); err != nil {
+			return err
+		}
+
+		// Copy all response headers
+		resp.Header.VisitAll(func(key, value []byte) {
+			c.Response().Header.SetBytesKV(key, value)
+		})
+		c.Status(resp.StatusCode())
+		return c.Send(resp.Body())
 	})
 
 	contentDir, _ := filepath.Abs("./static/content")

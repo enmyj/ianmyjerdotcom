@@ -89,5 +89,9 @@ func main() {
 		return handlers.RenderMarkdown(c, contentDir)
 	})
 
+	app.Use(func(c *fiber.Ctx) error {
+		return c.Render("404", fiber.Map{}, "layouts/main")
+	})
+
 	log.Fatal(app.Listen(":8000"))
 }

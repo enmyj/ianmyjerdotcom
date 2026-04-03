@@ -4,6 +4,7 @@ import (
 	"crypto/tls"
 	"html/template"
 	"log"
+	"os"
 	"path/filepath"
 	"regexp"
 	"time"
@@ -28,6 +29,11 @@ var honeypotClient = &fasthttp.Client{
 }
 
 func main() {
+	port := os.Getenv("PORT")
+	if port == "" {
+		port = "8080"
+	}
+
 	engine := html.New("./views", ".html")
 	engine.AddFunc(
 		"unescape", func(s string) template.HTML {
@@ -104,5 +110,5 @@ func main() {
 		return c.Status(404).Render("404", fiber.Map{}, "layouts/main")
 	})
 
-	log.Fatal(app.Listen(":8080"))
+	log.Fatal(app.Listen(":" + port))
 }

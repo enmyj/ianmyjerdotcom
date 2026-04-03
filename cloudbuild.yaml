@@ -28,8 +28,8 @@ options:
   logging: CLOUD_LOGGING_ONLY
 
 substitutions:
-  _REGION: us-central1
-  _REPOSITORY: cloud-run
+  _REGION: us-west1
+  _REPOSITORY: cloud-run-source-deploy
   _SERVICE_NAME: ianmyjerdotcom
 
 timeout: 1200s

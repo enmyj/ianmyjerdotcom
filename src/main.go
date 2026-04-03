@@ -104,5 +104,5 @@ func main() {
 		return c.Status(404).Render("404", fiber.Map{}, "layouts/main")
 	})
 
-	log.Fatal(app.Listen(":8000"))
+	log.Fatal(app.Listen(":8080"))
 }

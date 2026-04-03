@@ -17,5 +17,5 @@ FROM scratch AS runner
 COPY --from=builder /ianmyjerdotcom /ianmyjerdotcom
 COPY src/static /static
 COPY src/views /views
-EXPOSE 80
+EXPOSE 8080
 CMD ["/ianmyjerdotcom"]

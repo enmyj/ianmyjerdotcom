@@ -1,18 +1,22 @@
-FROM golang:alpine3.23 AS builder
+FROM golang:1.26-alpine AS builder
 
 WORKDIR /mnt/src
 
 COPY src/go.mod /mnt/src/go.mod
 COPY src/go.sum /mnt/src/go.sum
+
+RUN go mod download
+
 COPY src/main.go /mnt/src/main.go
 COPY src/views /mnt/src/views
 COPY src/static /mnt/src/static
 COPY src/handlers /mnt/src/handlers
 
-RUN go mod tidy
-RUN CGO_ENABLED=0 GOOS=linux go build -o /ianmyjerdotcom
+RUN CGO_ENABLED=0 GOOS=linux go build -trimpath -ldflags="-s -w" -o /ianmyjerdotcom ./main.go
 
 FROM scratch AS runner
+
+WORKDIR /
 
 COPY --from=builder /ianmyjerdotcom /ianmyjerdotcom
 COPY src/static /static

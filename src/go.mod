@@ -6,7 +6,7 @@ require (
 	github.com/gofiber/fiber/v2 v2.52.5
 	github.com/gofiber/template/html/v2 v2.1.2
 	github.com/valyala/fasthttp v1.51.0
-	github.com/yuin/goldmark v1.7.8
+	github.com/yuin/goldmark v1.8.2
 )
 
 require (
